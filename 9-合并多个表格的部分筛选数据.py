@@ -87,9 +87,9 @@ def process_csv_files(input_folder, output_folder, columns_to_filter, filter_val
         if combined_data:
             final_df = pd.concat(combined_data, ignore_index=True)
             suffix = "_filtered" if filter_values else "_all"
-            output_file_name = f"result{suffix}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.xlsx"
+            output_file_name = f"result{suffix}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
             output_path = os.path.join(output_folder, output_file_name)
-            final_df.to_excel(output_path, index=False)
+            final_df.to_csv(output_path, index=False)
             print(f"结果已保存到: {output_path}")
         else:
             print("没有找到任何符合条件的数据。")
